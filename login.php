@@ -14,16 +14,16 @@
                 <div class="card shadow">
                     <div class="card-body">
                     <img src="logo.webp" class="img-fluid d-block m-auto" alt="Admin" width="100">
-                        <h3 class="text-center mb-4">Student Quiz Login</h3>
+                        <h3 class="text-center mb-4"> Student Login</h3>
                         
                         <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            $student_rn = $_POST['student_rn'];
+                            $email = $_POST['email'];
                             $password = $_POST['password'];
                             
                             // Direct password comparison
-                            $stmt = $pdo->prepare("SELECT * FROM users WHERE student_rn = ? AND password = ?");
-                            $stmt->execute([$student_rn, $password]);
+                            $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
+                            $stmt->execute([$email, $password]);
                             $user = $stmt->fetch();
                             
                             if ($user) {
@@ -37,15 +37,15 @@
                                 }
                                 exit();
                             } else {
-                                echo "<div class='alert alert-danger'>Invalid Student ID or password</div>";
+                                echo "<div class='alert alert-danger'>Invalid email or password</div>";
                             }
                         }
                         ?>
 
                         <form method="POST" action="">
                             <div class="mb-3">
-                                <label class="form-label">Student ID</label>
-                                <input type="text" name="student_rn" class="form-control" required>
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Password</label>

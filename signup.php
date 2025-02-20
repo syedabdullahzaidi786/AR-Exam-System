@@ -13,36 +13,23 @@
             <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-body">
-                        <img src="logo.webp" class="img-fluid d-block m-auto" alt="Admin" width="100">
-                        <h3 class="text-center mb-4">Quiz Sign Up</h3>
+                    <img src="logo.webp" class="img-fluid d-block m-auto" alt="Admin" width="100">
+                        <h3 class="text-center mb-4">Student Sign Up</h3>
                         
                         <?php
                         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             $name = $_POST['name'];
-                            $student_rn = $_POST['student_rn']; // Ensure we're using the correct field here
+                            $email = $_POST['email'];
                             $password = $_POST['password']; // Store password as plain text
-
-                            // Debugging: Check if student_rn is being passed correctly
-                            echo "<p>Student RN: " . htmlspecialchars($student_rn) . "</p>"; // Show passed student_rn
-
-                            // Check if student_rn is empty or not
-                            if(empty($student_rn)) {
-                                echo "<div class='alert alert-danger'>Error: Student RN cannot be empty</div>";
-                            } else {
-                                try {
-                                    // Prepare the SQL statement with the correct column name
-                                    $stmt = $pdo->prepare("INSERT INTO users (name, student_rn, password, is_admin) VALUES (?, ?, ?, FALSE)");
-                                    if ($stmt->execute([$name, $student_rn, $password])) {
-                                        echo "<div class='alert alert-success'>Registration successful! <a href='login.php'>Login here</a></div>";
-                                    }
-                                } catch (PDOException $e) {
-                                    // Check for unique constraint violation on student_rn
-                                    if ($e->getCode() == 23000) {
-                                        echo "<div class='alert alert-danger'>Error: Student ID already exists</div>";
-                                    } else {
-                                        echo "<div class='alert alert-danger'>Error: " . $e->getMessage() . "</div>";
-                                    }
+                            
+                            try {
+                                // Direct password storage without hashing
+                                $stmt = $pdo->prepare("INSERT INTO users (name, email, password, is_admin) VALUES (?, ?, ?, FALSE)");
+                                if($stmt->execute([$name, $email, $password])) {
+                                    echo "<div class='alert alert-success'>Registration successful! <a href='login.php'>Login here</a></div>";
                                 }
+                            } catch(PDOException $e) {
+                                echo "<div class='alert alert-danger'>Error: Email already exists</div>";
                             }
                         }
                         ?>
@@ -53,8 +40,8 @@
                                 <input type="text" name="name" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Student RN</label>
-                                <input type="text" name="student_rn" class="form-control" required>
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
