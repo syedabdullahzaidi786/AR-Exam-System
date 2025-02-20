@@ -140,10 +140,10 @@ $user = $stmt->fetch();
     </nav>
 
     <div class="container my-5">
+        <img src="logo.webp" alt="GIAIC"class="d-block mx-auto mb-4" height="100">
         <h1 class="text-center main-heading mb-3">Available Quizzes</h1>
         <p class="text-center sub-heading">
-            Test your knowledge with our adaptive AI-powered quizzes. Select a course to begin
-            your assessment and track your progress.
+            Test your knowledge with our adaptive AI-powered quizzes. Select a quiz below to get started.
         </p>
 
         <div class="row g-4">
