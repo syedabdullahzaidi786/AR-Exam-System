@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'quiz_system';
+$dbname = 'dif_quiz_system';
 $username = 'root';
 $password = '';
 
