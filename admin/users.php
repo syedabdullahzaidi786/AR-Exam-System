@@ -100,7 +100,7 @@ if(isset($_POST['delete_user'])) {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Email</th>
+                                <th>Student ID</th>
                                 <th>Password</th>
                                 <th>Joined Date</th>
                                 <th>Quiz Attempts</th>

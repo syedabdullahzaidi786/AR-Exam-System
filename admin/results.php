@@ -120,8 +120,8 @@ $searchCondition = $search ? "AND (u.name LIKE :search OR u.email LIKE :search O
                     <table class="table table-hover">
                         <thead class="table-light">
                             <tr>
-                                <th>User</th>
-                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Student ID</th>
                                 <th>Quiz</th>
                                 <th>Score</th>
                                 <th>Percentage</th>
