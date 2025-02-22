@@ -15,7 +15,7 @@ $user = $stmt->fetch();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIAIC Quiz Portal - Dashboard</title>
+    <title>AR Quiz Portal - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
@@ -129,7 +129,7 @@ $user = $stmt->fetch();
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="logo.webp" alt="GIAIC" onerror="this.src='https://via.placeholder.com/40'">
+                <img src="logo.jpg" alt="GIAIC" onerror="this.src='https://via.placeholder.com/40'">
                 AR Quiz Portal
             </a>
             <div class="d-flex align-items-center">
