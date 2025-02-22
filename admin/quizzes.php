@@ -43,6 +43,58 @@ if(isset($_POST['save_quiz'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+            .sidebar {
+                background-color: #1a237e;
+                min-height: 100vh;
+                color: white;
+            }
+            .sidebar .nav-link {
+                color: rgba(255,255,255,.8);
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+            .sidebar .nav-link:hover {
+                color: white;
+                background-color: rgba(255,255,255,.1);
+            }
+            .sidebar .nav-link.active {
+                color: white;
+                background-color: rgba(255,255,255,.2);
+            }
+            .main-content {
+                background-color: #f5f5f5;
+                min-height: 100vh;
+            }
+            .search-box {
+                max-width: 400px;
+                margin-bottom: 2rem;
+            }
+            .results-table {
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            }
+            .score-cell {
+                font-weight: 500;
+            }
+            .percentage-badge {
+                font-size: 0.875rem;
+                padding: 0.25rem 0.5rem;
+            }
+            .high-score {
+                background-color: #4caf50;
+                color: white;
+            }
+            .medium-score {
+                background-color: #ff9800;
+                color: white;
+            }
+            .low-score {
+                background-color: #f44336;
+                color: white;
+            }
+        </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,6 +105,31 @@ if(isset($_POST['save_quiz'])) {
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar (same as index.php) -->
+            <!-- Sidebar -->
+                        <div class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                            <div class="position-sticky pt-3">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.php">Dashboard</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="quizzes.php">Manage Quizzes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="questions.php">Manage Questions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="users.php">Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="results.php">Results</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="logout.php">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
             
             <!-- Main content -->
             <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
